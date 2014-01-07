@@ -5,7 +5,7 @@ A web page with some programming references.
 
 Some of this is taken from WebRef at https://github.com/luigi1015/WebRef
 According to the MIT license of WebRef, the following license for WebRef is included.
-==============
+
 The MIT License (MIT)
 
 Copyright (c) 2013 Jeff Crone
@@ -26,4 +26,3 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-==============
