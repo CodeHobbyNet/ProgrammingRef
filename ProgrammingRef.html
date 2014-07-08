@@ -39,6 +39,9 @@
 				<ul>
 					<li><a href="#Languages-ObjectiveC">Objective-C</a></li>
 				</ul>
+				<ul>
+					<li><a href="#Languages-SQL">SQL</a></li>
+				</ul>
 			</li>
 			<li><a href="#DesignPatterns">Design Patterns</a>
 			</li>
@@ -175,6 +178,141 @@ echo Hello World
 				<pre>
 				</pre>
 			</code>
+			<a href="#top">Back to top</a>
+			<hr>
+			<h3><a id="Languages-SQL">SQL</a></h3>
+			<b>SELECT Statement, to retrieve data from the database</b>
+			<code>
+				<pre>
+SELECT column_name1, column_name2... FROM table_name WHERE condition;
+or
+SELECT * FROM table_name WHERE condition;
+for selecting all columns
+				</pre>
+			</code>
+			<br>
+			<b>ORDER BY clause, to order the returned data according to a specific column</b>
+			<code>
+				<pre>
+SELECT column_name1, column_name2... FROM table_name WHERE condition ORDER BY column_name;
+				</pre>
+			</code>
+			<br>
+			<b>GROUP BY clause, used with aggregate functions to group the aggregate by the values of a column</b>
+			<code>
+				<pre>
+SELECT column_name, count(*) FROM table_name WHERE condition GROUP BY column_name;
+Will display the count of rows for each distinct value of column_name rather than the count of all rows of the table.
+				</pre>
+			</code>
+			<br>
+			<b>HAVING clause, like the Where clause, but for aggregate functions and GROUP BY</b>
+			<code>
+				<pre>
+SELECT column_name, count(*) FROM table_name WHERE condition GROUP BY column_name HAVING count(*) > 10;
+Will display the count of rows for each distinct value of column_name that has more than 10 rows.
+				</pre>
+			</code>
+			<br>
+			<b>INSERT, to add rows to a table</b>
+			<code>
+				<pre>
+INSERT INTO table_name(column_name1, column_name2, ...) VALUES (value1, value2, ...), (value1, value2, ...);
+
+This is supported by many SQL servers to insert multiple rows with a single INSERT command, but if it doesn't work for your SQL server 
+you can always insert one line for every INSERT command like:
+
+INSERT INTO table_name(column_name1, column_name2, ...) VALUES (value1, value2, ...);
+				</pre>
+			</code>
+			<br>
+			<b>UPDATE, to modify a set of rows</b>
+			<code>
+				<pre>
+UPDATE table_name SET column_name1 = value1, column_name2 = value2 WHERE condition;
+				</pre>
+			</code>
+			<br>
+			<b>DELETE, to delete a set of rows</b>
+			<code>
+				<pre>
+DELETE FROM table_name WHERE condition;
+				</pre>
+			</code>
+			<br>
+			<b>CREATE TABLE, to create a table</b>
+			<code>
+				<pre>
+CREATE TABLE table_name(
+	column_name1 type1,
+	column_name2 type2,
+	...
+	PRIMARY KEY( column_name1, ...)
+);
+				</pre>
+			</code>
+			<br>
+			<b>DROP TABLE, to delete a table</b>
+			<code>
+				<pre>
+DROP TABLE table_name;
+				</pre>
+			</code>
+			<br>
+			<b>Data types (defined for a table in the CREATE TABLE statement) (some of these might not be supported by all SQL servers)</b>
+			<code>
+				<pre>
+CHARACTER(n) or CHAR(n): fixed length string
+CHARACTER VARYING(n) or VARCHAR(n): variable-width string with a maximum size of n characters
+BINARY(n): a string of n bits
+BINARY VARYING(n) or VARBINARY(n): a variable length string of up to n bits
+BOOLEAN: a true or false value
+INTEGER, SMALLINT and BIGINT
+FLOAT, REAL and DOUBLE PRECISION
+NUMERIC(precision, scale) or DECIMAL(precision, scale)
+DATE: for date values (e.g. 2011-05-03)
+TIME: for time values (e.g. 15:51:36). The granularity of the time value is usually a tick (100 nanoseconds).
+TIMESTAMP: This is a DATE and a TIME put together in one variable (e.g. 2011-05-03 15:51:36).
+				</pre>
+			</code>
+			<br>
+			<b>INNER JOIN, to join two or more tables</b>
+			<code>
+				<pre>
+SELECT table1.column_name1, table2.column_name2, ...
+FROM table1 INNER JOIN table2
+ON table1.column1 = table2.column3;
+
+There are different types of join:
+INNER JOIN: Returns only rows that the condition is completely met with rows from both tables.
+LEFT JOIN (or LEFT OUTER JOIN): Returns all rows from the left table and only rows from the right table that meet the condition.
+RIGHT JOIN (or RIGHT OUTER JOIN): Returns all rows from the right table and only rows from the left table that meet the condition.
+FULL JOIN (or FULL OUTER JOIN): Returns all rows from either of the tables that match the condition plus all the other rows from each source table.
+				</pre>
+			</code>
+			<br>
+			<b>UNION, to join the results of two or more select statements</b>
+			<code>
+				<pre>
+SELECT column_name1, column_name2, ... FROM table1
+UNION
+SELECT column_name1, column_name2, ... FROM table2
+
+Note 1: UNION returns only distinct values by default, to allow duplicates use UNION ALL instead.
+
+SELECT column_name1, column_name2, ... FROM table1
+UNION ALL
+SELECT column_name1, column_name2, ... FROM table2
+
+NOTE 2: You can use WHERE clauses and ORDER BY CLAUSES with UNION
+
+SELECT column_name1, column_name2, ... FROM table1 WHERE condition1
+UNION ALL
+SELECT column_name1, column_name2, ... FROM table2 WHERE condition2
+ORDER BY column_name3
+				</pre>
+			</code>
+			<br>
 			<a href="#top">Back to top</a>
 			<hr>
 		<span class="copyright"><a href="LICENSE">&copy; under the MIT License by Code Hobby</a></span>
